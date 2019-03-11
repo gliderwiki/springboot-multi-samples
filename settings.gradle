@@ -1,0 +1,3 @@
+rootProject.name = 'springboot-multi-samples'
+
+include 'common-samples', 'redis-samples', 'httpclient-samples', 'jpa-samples'
