@@ -66,6 +66,14 @@ project(':redis-samples') {
     }
 }
 
+
+project(':elastic-samples') {
+    dependencies {
+        compile project(':common-samples')
+    }
+}
+
+
 project(':httpclient-samples') {
     dependencies {
         compile project(':common-samples')
