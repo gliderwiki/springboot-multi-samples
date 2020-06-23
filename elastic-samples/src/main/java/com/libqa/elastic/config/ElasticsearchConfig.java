@@ -1,10 +1,7 @@
 package com.libqa.elastic.config;
 
-import org.apache.http.HttpHost;
 import org.elasticsearch.client.RestClient;
 import org.elasticsearch.client.RestHighLevelClient;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -12,19 +9,25 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ElasticsearchConfig {
 
-    @Value("${elasticsearch.host}")
-    private String host;
-
-    @Value("${elasticsearch.port}")
-    private int port;
+//    @Value("${elasticsearch.host}")
+//    private String host;
+//
+//    @Value("${elasticsearch.port}")
+//    private int port;
 
 
     @Bean
-    RestHighLevelClient restHighLevelClient() {
+    public RestHighLevelClient restHighLevelClient(ElasticsearchProperties elasticsearchProperties) {
+//        return new RestHighLevelClient(
+//                RestClient.builder(
+//                        new HttpHost(host, port, "http")
+//                        // ,new HttpHost(host2,port,"http")
+//
+//                )
+//        );
+
         return new RestHighLevelClient(
-                RestClient.builder(
-                        new HttpHost(host, port, "http")
-                )
+                RestClient.builder(elasticsearchProperties.hosts())
         );
     }
 

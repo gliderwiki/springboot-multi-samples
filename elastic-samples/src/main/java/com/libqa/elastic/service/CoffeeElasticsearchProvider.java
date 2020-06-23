@@ -2,9 +2,7 @@ package com.libqa.elastic.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.libqa.elastic.domain.document.Coffee;
-import io.micrometer.core.instrument.search.Search;
 import lombok.extern.slf4j.Slf4j;
-import org.elasticsearch.action.Action;
 import org.elasticsearch.action.ActionListener;
 import org.elasticsearch.action.index.IndexRequest;
 import org.elasticsearch.action.index.IndexResponse;
@@ -28,17 +26,17 @@ import java.io.IOException;
  */
 @Slf4j
 @Component
-public class ElasticsearchProvider implements CoffeeUseCase {
+public class CoffeeElasticsearchProvider implements CoffeeUseCase {
 
     private final RestHighLevelClient restHighLevelClient;
 
-    public ElasticsearchProvider(RestHighLevelClient restHighLevelClient) {
+    public CoffeeElasticsearchProvider(RestHighLevelClient restHighLevelClient) {
         this.restHighLevelClient = restHighLevelClient;
     }
 
     @Override
     public Mono<Void> addDocument(Coffee coffee) throws IOException {
-        IndexRequest indexRequest = new IndexRequest("cafe", "coffee")
+        IndexRequest indexRequest = new IndexRequest("cafe")
                 .source("title", coffee.getTitle(),
                         "price", coffee.getPrice());
 
@@ -82,7 +80,6 @@ public class ElasticsearchProvider implements CoffeeUseCase {
 
         return getCoffeeFlux(searchSourceBuilder);
     }
-
 
 
     private Flux<Coffee> getCoffeeFlux(SearchSourceBuilder searchSourceBuilder) {

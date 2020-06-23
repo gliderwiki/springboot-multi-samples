@@ -1,0 +1,8 @@
+POST http://localhost:8080/user/index/twitter/_doc?user_name=edell&message=my name is edell.lee
+Content-Type: application/json
+
+###
+
+GET http://localhost:8080/user/get/twitter/_doc/1
+
+###

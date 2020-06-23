@@ -2,8 +2,8 @@ POST http://localhost:8080/coffees
 Content-Type: application/json
 
 {
-  "title" : "iced americano",
-  "price" : "700"
+  "title" : "Vanilla latte",
+  "price" : "2500"
 }
 
 ###
