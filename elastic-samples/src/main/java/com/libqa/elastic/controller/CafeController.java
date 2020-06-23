@@ -24,6 +24,10 @@ public class CafeController {
         this.coffeeUseCase = coffeeUseCase;
     }
 
+    /**
+     * @see coffee.http
+     * @return
+     */
     @GetMapping
     public Flux<Coffee> findAll(){
 
