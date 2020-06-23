@@ -60,6 +60,8 @@ public class UserController {
     // http://localhost:8080/user/match_all/twitter
     @GetMapping("/match_all/{index}")
     public Flux<User> matchAll(@PathVariable("index") String index) {
+        log.info("# match app = {}", index);
+
         return userUseCase.matchAll(index).onErrorResume((Throwable error) -> {
             log.error("err", error);
             User defaultUser = new User();

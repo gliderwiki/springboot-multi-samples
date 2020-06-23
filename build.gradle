@@ -55,13 +55,7 @@ subprojects {
         testCompile 'org.mockito:mockito-junit-jupiter:2.23.0'
         implementation("org.springframework.boot:spring-boot-starter-webflux")
         testImplementation("io.projectreactor:reactor-test")
-        // es
-        implementation("org.elasticsearch.client:elasticsearch-rest-client:7.0.0")
-        implementation("org.elasticsearch:elasticsearch:7.0.0")
-        implementation("org.elasticsearch.client:elasticsearch-rest-high-level-client:7.0.0")
-
-        compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-elasticsearch', version: '2.0.0.RELEASE'
-        compile group: 'org.springframework.boot', name: 'spring-boot-starter-parent', version: '2.0.0.RELEASE', ext: 'pom'
+        
     }
 
     dependencyManagement {
